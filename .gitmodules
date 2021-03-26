@@ -1,3 +1,6 @@
 [submodule "iso-profiles"]
 	path = iso-profiles
 	url = https://gitlab.manjaro.org/profiles-and-settings/iso-profiles.git
+[submodule "my-custom-manjaro-iso-profiles"]
+	path = my-custom-manjaro-iso-profiles
+	url = https://github.com/MarkusPeitl/my-custom-manajro-iso-profiles

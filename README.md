@@ -24,6 +24,7 @@ It requires priviledged mode and could break your host system if wrongfully used
 ## TODO
 
 - Integrate easy method to add AUR packages
+- Cache optimization (save package caches on host or daemonize docker container)
 
 ### Note
 
