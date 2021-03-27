@@ -6,15 +6,19 @@ OUTPUT_DIRECTORY=$(pwd)/iso-target/
 echo $OUTPUT_DIRECTORY
 
 INPUT_PROFILES=$(pwd)/iso-profiles/
-INPUT_PROFILES=$(pwd)/my-custom-manjaro-iso-profiles/
+INPUT_PROFILES=$(pwd)/my-custom-manjaro-profiles/
 echo $INPUT_PROFILES
 
 #PACMAN_CACHE=/tmp/pacman-cache/
 PACMAN_CACHE=$(pwd)/pacman-cache/
 echo $PACMAN_CACHE
 
+SNAPD_CACHE=$(pwd)/snapd-cache/
+echo $SNAPD_CACHE
+
+
 PROFILE='-p media-xfce-kde'
-FLAGS='-f -c'
+FLAGS='-f'
 
 
 sudo mkdir -p $PACMAN_CACHE
@@ -33,6 +37,9 @@ docker run -it \
 -v $INPUT_PROFILES:/root/iso-profiles \
 -v $OUTPUT_DIRECTORY:/output-volume \
 -v $PACMAN_CACHE:/var/cache/pacman/pkg \
+-v /var/lib/snapd:/var/lib/snapd/snaps \
+-v /var/run/snapd.socket:/var/run/snapd.socket \
+-v /snap:/snap \
 manajaro-iso-creator \
 $PROFILE \
 $FLAGS
@@ -44,5 +51,10 @@ $FLAGS
 #-v $INPUT_PROFILES:/root/iso-profiles \
 #-v $OUTPUT_DIRECTORY:/output-volume \
 #-v $PACMAN_CACHE:/var/cache/pacman/pkg \
+#-v /var/lib/snapd:/var/lib/snapd/snaps \
+#-v /var/run/snapd.socket:/var/run/snapd.socket \
+#-v /snap:/snap \
 #--entrypoint /bin/bash \
 #manajaro-iso-creator \
+
+#-v $SNAPD_CACHE:/var/lib/snapd/snaps \

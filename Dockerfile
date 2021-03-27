@@ -7,7 +7,15 @@ RUN pacman -Syu --noconfirm
 RUN pacman -Syu --noconfirm sudo
 #RUN pacman -Syu --noconfirm pamac
 RUN pacman -Syu --noconfirm  manjaro-tools-iso
+RUN pacman -Syu --noconfirm  manjaro-tools-pkg
 RUN pacman -Syu --noconfirm  git
+RUN pacman -Syu --noconfirm  yay
+
+RUN pacman -Syu --noconfirm  snapd
+#RUN sudo systemctl enable --now snapd.socket
+#RUN sudo systemctl enable --now snapd.socket
+#RUN sudo ln -s /var/lib/snapd/snap /snap
+#RUN sudo snap install snapd
 
 RUN mkdir /var/lib/manjaro-tools
 
