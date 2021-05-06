@@ -1,6 +1,12 @@
 #TODO remove priviledged and only add capabilities needed
 #--cap-add=CHOWN --cap-add=MKNOD --cap-add=SETFCAP --cap-add=SYS_CHROOT --cap-add=SYS_ADMIN
 
+TARGET_PROFILE=$1
+
+if [ -z $TARGET_PROFILE ]; then
+    TARGET_PROFILE=media-xfce-kde
+fi;
+
 #OUTPUT_DIRECTORY=`dirname $0`/iso-target/
 OUTPUT_DIRECTORY=$(pwd)/iso-target/
 echo $OUTPUT_DIRECTORY
@@ -17,7 +23,7 @@ SNAPD_CACHE=$(pwd)/snapd-cache/
 echo $SNAPD_CACHE
 
 
-PROFILE='-p media-xfce-kde'
+PROFILE="-p $TARGET_PROFILE"
 FLAGS='-f'
 
 
